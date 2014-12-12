@@ -21,6 +21,7 @@ public class GrandEntier {
         bigInt = rnd.nextInt(Math.pow(2,numBits));
     }
 
+
     public static int Karatsuba(int n) {
 
     }
