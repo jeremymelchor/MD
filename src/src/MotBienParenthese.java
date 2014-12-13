@@ -8,13 +8,35 @@ public class MotBienParenthese {
 
     private static String v, u;
     private static ArrayList<String> listeFinale = new ArrayList<String>();
+    private static int Nfinal;
 
-/* public static void enumMotsBP(int n) {
-        String constructeur = "("+u+")"+v;
-        if (n==0) System.out.println("Aucun mot de longueur 0");
-        listeFinale.add(constructeur);
+    public static ArrayList<String> enumMotsBP(int n) {
 
-    }*/
+       if (Thread.currentThread().getStackTrace()[2].getMethodName().equals("main")) {
+            Nfinal = n;
+        }
+
+        if (n == 0) {
+            listeFinale.add("");
+            return listeFinale;
+        } else {
+
+            listeFinale = enumMotsBP(n - 1);
+            for (int i = 0; i < listeFinale.size(); i++) {
+                for (int j = 0; j < listeFinale.size(); j++) {
+                    if (listeFinale.get(i).length() + listeFinale.get(j).length() + 2 == 2 * n) {
+                        listeFinale.add("(" + listeFinale.get(i) + ")" + listeFinale.get(j));
+                        if (listeFinale.get(listeFinale.size() - 1).length() == 2 * Nfinal) {
+                            System.out.println(listeFinale.get(listeFinale.size() - 1));
+                        }
+                    }
+
+                }
+            }
+            return listeFinale;
+        }
+    }
+
 
     /*
     * @authors: Matthieu | Jeremy
