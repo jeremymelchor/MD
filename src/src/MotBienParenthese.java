@@ -38,6 +38,16 @@ public class MotBienParenthese {
     }
 
 
+    public static int catalan(int n) {
+        final int i = n;
+
+        if (n <= 1) return 1;
+        else {
+            return ( ((i+n)/n) * catalan(n - 1) );
+        }
+    }
+
+
     /*
     * @authors: Matthieu | Jeremy
     */
