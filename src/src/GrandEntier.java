@@ -6,7 +6,7 @@ import java.util.Random;
  */
 public class GrandEntier {
 
-    public static final int B = 10;
+    public static int B = 10;
     public static final int MAXBITLENGTH = 10000000;
     public static ArrayList<Integer> listeChiffres = new ArrayList<Integer>();
 
@@ -17,9 +17,12 @@ public class GrandEntier {
         } catch (Exception e) {
             System.out.println("La longueur de votre nombre dépasse la longueur autorisée de 10 000 000");
         }
-
         rnd = new Random();
-        //bigInt = rnd.nextInt(Math.pow(2,numBits));
+        //je génere la taille en bits du futur grand nombre
+        int sizeGe = rnd.nextInt((int) Math.pow(2,numBits-1)+1);
+        for(int i = 0 ; i < sizeGe ; i++){
+            listeChiffres.add(rnd.nextInt(B-1));
+        }
     }
 
     public GrandEntier(ArrayList<Integer> ge) {
